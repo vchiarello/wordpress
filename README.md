@@ -9,3 +9,5 @@ docker run -d --name devtest --mount source=apache_mysql-data-wordpress,target=/
 
 copiare i file all'interno del volume 
 spegnere il container e far partire i container apache e mysql
+
+Il backup dei file mysql messo nel folder OneDrive\Progetti\wordpress\databaseBackup
