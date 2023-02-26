@@ -1,0 +1,1 @@
+ docker run -d --name devtest --mount source=apache_mysql-data-wordpress,target=/app nginx:latest

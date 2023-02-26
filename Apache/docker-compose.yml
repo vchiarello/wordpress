@@ -1,0 +1,28 @@
+version: "3.9"
+   
+services:
+  db-mysql:
+    image: mysql
+    volumes:
+      - mysql-data-wordpress:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: vito12
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress  
+    ports:
+      - "3306:3306"
+    restart: "no"
+    container_name: db-mysql 
+  web-vito-wordpress:
+    image: "vchiarello/wordpress:3.0"
+    volumes:
+      - "../wordpress:/var/www/html:rw"
+    restart: "no"  
+    ports:
+      - "80:80"
+    container_name: wordpress
+    depends_on:
+      - db-mysql
+volumes:
+    mysql-data-wordpress: {}
