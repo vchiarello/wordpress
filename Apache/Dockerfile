@@ -34,6 +34,7 @@ RUN ln -s /etc/apache2/mods-enabled/ mods-enabled
 RUN ln -s /etc/apache2/ports.conf ports.conf
 RUN ln -s /etc/apache2/sites-available/ sites-available
 RUN ln -s /etc/apache2/sites-enabled/ sites-enabled
+RUN a2enmod rewrite
 RUN mv httpd.conf httpd.conf.orig
 COPY apache2.conf /usr/local/apache2/conf/httpd.conf
 WORKDIR /run

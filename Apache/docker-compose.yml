@@ -14,11 +14,14 @@ services:
       - "3306:3306"
     restart: "no"
     container_name: db-mysql 
+    cap_add:
+      - SYS_NICE
   web-vito-wordpress:
-    image: "vchiarello/wordpress:3.0"
+    image: "vchiarello/wordpress:3.4"
     volumes:
       - "../wordpress:/var/www/html:rw"
-    restart: "no"  
+    restart: "no"
+    hostname: www.vito.com
     ports:
       - "80:80"
     container_name: wordpress
